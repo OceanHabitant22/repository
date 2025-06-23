@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 ЛЕГЕНДАРНЫЙ ГОД 2024 🎉</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@400;600;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: radial-gradient(circle at 20% 80%, #120458 0%, #000000 50%, #1a0033 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: white;
+            position: relative;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .container {
+            max-width: 430px;
+            margin: 0 auto;
+            padding: 15px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+            padding: 30px 0;
+        }
+
+        .main-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ff006e, #fb5607, #ffbe0b, #8338ec, #3a86ff);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 3s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(255, 0, 110, 0.5);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .sub-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #00f5ff;
+            text-shadow: 0 0 20px rgba(0, 245, 255, 0.6);
+            margin-bottom: 10px;
+        }
+
+        .year-badge {
+            display: inline-block;
+            font-family: 'Orbitron', monospace;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #ffbe0b;
+            background: linear-gradient(135deg, rgba(255, 190, 11, 0.2), rgba(255, 0, 110, 0.2));
+            border: 3px solid #ffbe0b;
+            border-radius: 20px;
+            padding: 15px 25px;
+            box-shadow: 0 0 40px rgba(255, 190, 11, 0.4), inset 0 0 20px rgba(255, 190, 11, 0.1);
+            animation: year-pulse 2s infinite;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes year-pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(255, 190, 11, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 60px rgba(255, 190, 11, 0.8); }
+        }
+
+        .game-showcase {
+            background: linear-gradient(135deg, rgba(255, 0, 110, 0.1), rgba(131, 56, 236, 0.1));
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            border-radius: 25px;
+            padding: 25px;
+            margin: 25px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-showcase::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #ffbe0b);
+            border-radius: 25px;
+            z-index: -1;
+            animation: border-glow 2s linear infinite;
+        }
+
+        @keyframes border-glow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        .game-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ff006e;
+            text-shadow: 0 0 20px rgba(255, 0, 110, 0.6);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #1a0033, #120458);
+            border: 2px solid #ff006e;
+            box-shadow: 0 10px 30px rgba(255, 0, 110, 0.3);
+        }
+
+        .video-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, rgba(26, 0, 51, 0.9), rgba(18, 4, 88, 0.9));
+        }
+
+        .epic-play-btn {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff006e, #8338ec);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(255, 0, 110, 0.5);
+            animation: epic-pulse 2s infinite;
+        }
+
+        .epic-play-btn::after {
+            content: "▶";
+            color: white;
+            font-size: 32px;
+            margin-left: 4px;
+        }
+
+        .epic-play-btn:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 50px rgba(255, 0, 110, 0.8);
+        }
+
+        @keyframes epic-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .game-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(58, 134, 255, 0.2), rgba(131, 56, 236, 0.2));
+            border: 1px solid rgba(58, 134, 255, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(58, 134, 255, 0.4);
+        }
+
+        .stat-number {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #3a86ff;
+            text-shadow: 0 0 15px rgba(58, 134, 255, 0.6);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #00f5ff;
+            margin-top: 8px;
+        }
+
+        .achievements-section {
+            margin: 40px 0;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #ffbe0b, #ff006e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(255, 190, 11, 0.5);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .achievement-card {
+            background: linear-gradient(135deg, rgba(255, 190, 11, 0.1), rgba(255, 0, 110, 0.1));
+            border: 2px solid transparent;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .achievement-card:hover::before {
+            left: 100%;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 190, 11, 0.3);
+            border-color: #ffbe0b;
+        }
+
+        .achievement-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+            filter: drop-shadow(0 0 10px rgba(255, 190, 11, 0.5));
+        }
+
+        .achievement-number {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffbe0b;
+            margin: 15px 0 10px 0;
+            text-shadow: 0 0 20px rgba(255, 190, 11, 0.6);
+        }
+
+        .achievement-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #00f5ff;
+            line-height: 1.3;
+        }
+
+        .legendary-section {
+            background: linear-gradient(135deg, rgba(255, 0, 110, 0.2), rgba(131, 56, 236, 0.2));
+            border: 2px solid #ff006e;
+            border-radius: 25px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+            animation: legendary-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes legendary-glow {
+            0%, 100% { box-shadow: 0 0 30px rgba(255, 0, 110, 0.3); }
+            50% { box-shadow: 0 0 50px rgba(255, 0, 110, 0.6); }
+        }
+
+        .legendary-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #ff006e;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255, 0, 110, 0.8);
+        }
+
+        .legendary-text {
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1.6;
+            color: #00f5ff;
+            margin-bottom: 25px;
+        }
+
+        .cake-animation {
+            font-size: 4rem;
+            animation: cake-party 2s ease-in-out infinite;
+            margin: 20px 0;
+        }
+
+        @keyframes cake-party {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.2) rotate(-10deg); }
+            75% { transform: scale(1.1) rotate(10deg); }
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particle-float 3s linear infinite;
+        }
+
+        @keyframes particle-float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .neon-border {
+            position: relative;
+        }
+
+        .neon-border::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #ffbe0b);
+            border-radius: inherit;
+            z-index: -1;
+            animation: neon-rotate 2s linear infinite;
+        }
+
+        @keyframes neon-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .explosion {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .explosion-particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            animation: explode 1s ease-out forwards;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(10);
+                opacity: 0;
+            }
+        }
+
+        .loading-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .loading-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #ff006e, #8338ec, #3a86ff);
+            border-radius: 3px;
+            animation: loading 3s ease-in-out;
+        }
+
+        @keyframes loading {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1 class="main-title">ЛЕГЕНДАРНЫЙ ГОД!</h1>
+            <p class="sub-title">Твои эпические достижения</p>
+            <div class="year-badge">46 год</div>
+        </div>
+
+        <div class="game-showcase">
+            <h2 class="game-title">🏆 ЛУЧШИЙ 🏆</h2>
+            <div class="video-container">
+                <div class="video-content" id="videoContent">
+                    <div class="epic-play-btn" onclick="startEpicBattle()"></div>
+                    <p style="margin-top: 20px; color: #00f5ff; font-weight: 600; font-size: 1.1rem;">ЭПИЧЕСКАЯ БИТВА ЖДЕТ!</p>
+                </div>
+            </div>
+            <div class="game-stats">
+                <div class="stat-card">
+                    <div class="stat-number">1920</div>
+                    <div class="stat-label">ПОБЕД В АРЕНЕ</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">GALEK</div>
+                    <div class="stat-label">Заюзанный ГЕРОЙ</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="achievements-section">
+            <h2 class="section-title">💎 ДОСТИЖЕНИЯ ГОДА 💎</h2>
+            
+            <div class="achievements-grid">
+                <div class="achievement-card" onclick="celebrateAchievement(this)">
+                    <span class="achievement-icon">💪</span>
+                    <div class="achievement-number">2847</div>
+                    <div class="achievement-label">ПОДТЯГИВАНИЙ</div>
+                </div>
+
+                <div class="achievement-card" onclick="celebrateAchievement(this)">
+                    <span class="achievement-icon">🏃‍♂️</span>
+                    <div class="achievement-number">436</div>
+                    <div class="achievement-label">КМ ПРОБЕЖАЛ</div>
+                </div>
+
+                <div class="achievement-card" onclick="celebrateAchievement(this)">
+                    <span class="achievement-icon">🔥</span>
+                    <div class="achievement-number">3654</div>
+                    <div class="achievement-label">ОТЖИМАНИЙ</div>
+                </div>
+
+                <div class="achievement-card" onclick="celebrateAchievement(this)">
+                    <span class="achievement-icon">🏡</span>
+                    <div class="achievement-number">ДОМ</div>
+                    <div class="achievement-label">ДОСТРОИЛ ДОМ</div>
+                </div>
+
+                <div class="achievement-card" onclick="celebrateAchievement(this)">
+                    <span class="achievement-icon">🎯</span>
+                    <div class="achievement-number">63</div>
+                    <div class="achievement-label">ЦЕЛЕЙ ДОСТИГНУТО</div>
+                </div>
+
+                <div class="achievement-card" onclick="celebrateAchievement(this)">
+                    <span class="achievement-icon">🎮</span>
+                    <div class="achievement-number">85</div>
+                    <div class="achievement-label">ЧАСОВ В RAID SHADOW LEGENDS</div>
+                </div>
+
+                <div class="achievement-card" onclick="celebrateAchievement(this)">
+                    <span class="achievement-icon">🛣️</span>
+                    <div class="achievement-number">10см</div>
+                    <div class="achievement-label">БЕТОНА ПОСТАВЛЕНО</div>
+                </div>
+
+                <div class="achievement-card" onclick="celebrateAchievement(this)">
+                    <span class="achievement-icon">🍺</span>
+                    <div class="achievement-number">23</div>
+                    <div class="achievement-label">ЛИТРА ПИВА ВЫПИТО</div>
+                </div>
+
+                <div class="achievement-card" onclick="celebrateAchievement(this)">
+                    <span class="achievement-icon">🏎️</span>
+                    <div class="achievement-number">KIA CERATO</div>
+                    <div class="achievement-label">ПОЛУЧЕНА</div>
+                </div>
+
+                <div class="achievement-card" onclick="celebrateAchievement(this)">
+                    <span class="achievement-icon">🧠</span>
+                    <div class="achievement-number">1247</div>
+                    <div class="achievement-label">ЗАДАЧ РЕШЕНО</div>
+                </div>
+
+                <div class="achievement-card" onclick="celebrateAchievement(this)">
+                    <span class="achievement-icon">🌳</span>
+                    <div class="achievement-number">67</div>
+                    <div class="achievement-label">САЖЕНЦОВ  ПОСАЖЕНО</div>
+                </div>
+
+                <div class="achievement-card" onclick="celebrateAchievement(this)">
+                    <span class="achievement-icon">🌟</span>
+                    <div class="achievement-number">99</div>
+                    <div class="achievement-label">ЗВЕЗДНЫХ МОМЕНТОВ</div>
+                </div>
+
+                <div class="achievement-card" onclick="celebrateAchievement(this)">
+                    <span class="achievement-icon">🍕</span>
+                    <div class="achievement-number">284</div>
+                    <div class="achievement-label">ПИЦЦ СЪЕДЕНО</div>
+                </div>
+
+                <div class="achievement-card" onclick="celebrateAchievement(this)">
+                    <span class="achievement-icon">😂</span>
+                    <div class="achievement-number">56</div>
+                    <div class="achievement-label">СМЕШНЫХ МОМЕНТОВ</div>
+                </div>
+
+                <div class="achievement-card" onclick="celebrateAchievement(this)">
+                    <span class="achievement-icon">🚀</span>
+                    <div class="achievement-number">49</div>
+                    <div class="achievement-label">ИДЕЙ ЗАПУЩЕНО</div>
+                </div>
+
+                <div class="achievement-card" onclick="celebrateAchievement(this)">
+                    <span class="achievement-icon">🍝</span>
+                    <div class="achievement-number">742</div>
+                    <div class="achievement-label">УЖИНА ПРИГОТОВЛЕНО</div>
+                </div>
+
+                <div class="achievement-card" onclick="celebrateAchievement(this)">
+                    <span class="achievement-icon">🏋️‍♂️</span>
+                    <div class="achievement-number">365</div>
+                    <div class="achievement-label">ТРЕНИРОВОК</div>
+                </div>
+
+                <div class="achievement-card" onclick="celebrateAchievement(this)">
+                    <span class="achievement-icon">💪</span>
+                    <div class="achievement-number">940</div>
+                    <div class="achievement-label">ОТЖИМАНИЙ СДЕЛАНО</div>
+                </div>
+
+                <div class="achievement-card" onclick="celebrateAchievement(this)">
+                    <span class="achievement-icon">🎥</span>
+                    <div class="achievement-number">92</div>
+                    <div class="achievement-label">ФИЛЬМА ПРОСМОТРЕНО</div>
+                </div>
+
+                <div class="achievement-card" onclick="celebrateAchievement(this)">
+                    <span class="achievement-icon">🔥</span>
+                    <div class="achievement-number">∞</div>
+                    <div class="achievement-label">КРУТОСТИ НАБРАНО</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="legendary-section">
+            <h2 class="legendary-title">🌟 ЛЕГЕНДАРНЫЙ СТАТУС 🌟</h2>
+            <p class="legendary-text">
+                Этот год был абсолютно невероятным! 🚀<br>
+                Ты не просто достиг целей - ты их уничтожил! 💥<br>
+                Каждое достижение делает тебя сильнее! ⚡<br>
+                Следующий год будет еще эпичнее! 🔥
+            </p>
+            <div class="cake-animation">🎂✨🎉</div>
+        </div>
+    </div>
+
+    <script>
+        // Создание звездного неба
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 200; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 2 + 's';
+                star.style.animationDuration = (Math.random() * 3 + 1) + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Создание частиц
+        function createParticles() {
+            const colors = ['#ff006e', '#fb5607', '#ffbe0b', '#8338ec', '#3a86ff'];
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.animationDelay = Math.random() * 3 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 2) + 's';
+                document.body.appendChild(particle);
+                
+                setTimeout(() => {
+                    particle.remove();
+                }, 6000);
+            }
+        }
+
+        // Создание взрыва
+        function createExplosion(x, y) {
+            const explosion = document.createElement('div');
+            explosion.className = 'explosion';
+            explosion.style.left = x + 'px';
+            explosion.style.top = y + 'px';
+            document.body.appendChild(explosion);
+
+            const colors = ['#ff006e', '#ffbe0b', '#3a86ff', '#8338ec', '#fb5607'];
+            
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'explosion-particle';
+                particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.left = '50%';
+                particle.style.top = '50%';
+                particle.style.transform = `translate(-50%, -50%) rotate(${Math.random() * 360}deg)`;
+                explosion.appendChild(particle);
+            }
+
+            setTimeout(() => {
+                explosion.remove();
+            }, 1000);
+        }
+
+        // Празднование достижения
+        function celebrateAchievement(element) {
+            const rect = element.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            createExplosion(centerX, centerY);
+            createParticles();
+            
+            element.style.transform = 'scale(1.3) rotate(10deg)';
+            element.style.boxShadow = '0 0 50px rgba(255, 190, 11, 0.8)';
+            
+            setTimeout(() => {
+                element.style.transform = '';
+                element.style.boxShadow = '';
+            }, 500);
+        }
+
+        // Эпическая битва
+        function startEpicBattle() {
+            const videoContent = document.getElementById('videoContent');
+            
+            videoContent.innerHTML = `
+                <div style="width: 90%; text-align: center;">
+                    <h3 style="color: #ff006e; font-family: 'Orbitron', monospace; margin-bottom: 15px; font-size: 1.2rem;">⚔️ БИТВА НАЧАЛАСЬ! ⚔️</h3>
+                    <div class="loading-bar">
+                        <div class="loading-progress"></div>
+                    </div>
+                    <p style="color: #00f5ff; font-size: 1rem;">Сражение с Драконом Тьмы...</p>
+                </div>
+            `;
+            
+            setTimeout(() => {
+                videoContent.innerHTML = `
+                    <div style="text-align: center;">
+                        <div style="font-size: 4rem; margin-bottom: 15px; animation: cake-party 1s ease-in-out;">🏆</div>
+                        <h3 style="color: #ffbe0b; font-family: 'Orbitron', monospace; font-size: 1.4rem; margin-bottom: 10px;">ЛЕГЕНДАРНАЯ ПОБЕДА!</h3>
+                        <p style="color: #00f5ff; font-size: 1rem; margin-bottom: 15px;">Дракон повержен! +50000 XP!</p>
+                        <button onclick="resetBattle()" style="padding: 12px 20px; background: linear-gradient(45deg, #ff006e, #8338ec); color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 1rem;">НОВАЯ БИТВА</button>
+                    </div>
+                `;
+                createExplosion(window.innerWidth / 2, window.innerHeight / 2);
+                createParticles();
+            }, 3000);
+        }
+
+        // Сброс битвы
+        function resetBattle() {
+            const videoContent = document.getElementById('videoContent');
+            videoContent.innerHTML = `
+                <div class="epic-play-btn" onclick="startEpicBattle()"></div>
+                <p style="margin-top: 20px; color: #00f5ff; font-weight: 600; font-size: 1.1rem;">ЭПИЧЕСКАЯ БИТВА ЖДЕТ!</p>
+            `;
+        }
+
+        // Инициализация
+        window.addEventListener('load', () => {
+            createStars();
+            
+            setTimeout(() => {
+                createParticles();
+            }, 1000);
+            
+            // Периодическое создание частиц
+            setInterval(() => {
+                if (Math.random() > 0.7) {
+                    createParticles();
+                }
+            }, 8000);
+        });
